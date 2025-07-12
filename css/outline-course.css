@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: "PT Sans", sans-serif;
+    line-height: 1.3;
+}
+.container{
+    max-width: 500px;
+    height: 100vh;
+    margin: 10px auto;
+    border-radius: 20px;
+    background-color: #272a31;
+    color: #fff;
+}
+.heading{
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px 0;
+}
+.search-group{
+    display: flex;
+    align-items: center;
+    padding: 20px 20px;
+    gap: 20px;
+}
+.search-form{
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    background-color: #323c4a;
+    border-radius: 10px;
+}
+.search-form input{
+    border: none;
+    outline: none;
+    padding-left: 30px;
+    min-width: 300px;
+    height: 40px;
+    background-color: transparent;
+}
+.search-form input::placeholder{
+    font-size: 1.6rem;
+    font-family: "PT Sans", sans-serif;
+}
+.search-form input:not(:placeholder-shown){
+    color: #fff;
+    font-size: 1.6rem;
+    font-family: "PT Sans", sans-serif;
+}
+.save-lesson{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: #0093fc;
+}
+.save-lesson i {
+    font-size: 2rem;
+}
+.save-lesson span{
+    font-size: 1.2rem;
+}
+.lesson-group {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.lesson-list {
+    counter-reset: section-counter; /* Gốc */
+    list-style: none;
+    padding-left: 0;
+}
+.section{
+    position: relative;
+    counter-increment: section-counter; /* Tăng section */
+    counter-reset: lesson-counter; /* Reset bài học cho từng section */
+}
+.section-header{
+    display: flex;
+    position: sticky;
+    top: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    font-size: 2rem;
+    font-weight: 700;
+    border-bottom: 1px solid #1e1f23;
+    background-color: #272a31;
+    color: #fff;
+    z-index: 99;
+}
+.section-header h2 {
+    font-size: 2rem;
+}
+.section-header h2::before{
+    content: counter(section-counter) ". "; /* Chỉ mục cho section lớn */
+    font-weight: bold;
+}
+.lesson{
+    counter-increment: lesson-counter; /* Tăng từng bài học */
+}
+.lesson a {
+  display: block;
+  padding: 15px 20px;
+  background: #2a2b31;
+  color: #888;
+  text-decoration: none;
+  border-bottom: 1px solid #1e1f23;
+  position: relative;
+  counter-increment: sub-heading;
+}
+.lesson a::before {
+  content: counter(section-counter) ". " counter(lesson-counter)". ";
+  font-weight: normal;
+  margin-right: 10px;
+  color: #888;
+}
